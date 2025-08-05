@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <link rel="stylesheet" href="../resources/css/base.css">
     <title>My page</title>
@@ -26,34 +27,17 @@
 </div>
 <div class="main">
     <div class="wrapper">
-        <div class="custom-slider">
-            <div class="custom-slider__slide">
-                <img class="custom-slider__image" id="parallax-image"
-                     src="../resources/img/zhenyu-luo-R52VvKPE1y0-unsplash.jpg" alt="">
-                <div class="custom-slider__label">
-                    <div>Космос бескрайний и загадочный, в его глубинах скрываются миллиарды звёзд, каждая из которых
-                        может
-                        быть центром своей планетной системы. Человечество лишь начало изучать просторы Вселенной, но
-                        уже
-                        сейчас мы знаем, что за пределами Земли есть удивительные миры — ледяные спутники, огненные
-                        газовые
-                        гиганты и, возможно, даже планеты, пригодные для жизни. Современные телескопы позволяют
-                        заглянуть на
-                        миллиарды световых лет назад, наблюдая за рождением и смертью далёких галактик. Однако чем
-                        больше мы
-                        узнаём, тем больше вопросов остаётся без ответа: одиноки ли мы во Вселенной или где-то там есть
-                        другие разумные существа? Космические миссии, такие как полёты к Марсу и за пределы Солнечной
-                        системы, приближают нас к разгадке этих тайн. Возможно, уже в этом столетии человечество сделает
-                        открытие, которое перевернёт наше представление о мироздании.
-                    </div>
-                </div>
+        <div class="terminal">
+            <div class="terminal__text">
+                <p class="terminal-command" id="typewriter"></p>
+                <p class=""></p>
             </div>
         </div>
     </div>
     <div class="wrapper">
         <div class="grid-margin">
             <div class="navigation">
-                <div class="navigation__box">
+                <div class="navigation__box" data-aos="fade-up">
                     <img class="navigation__box__img" src="../resources/img/biography.png">
                     <div class="decoration-line"></div>
                     <p class="navigation__box__text">Космос бескрайний и загадочный, в его глубинах скрываются миллиарды
@@ -62,7 +46,7 @@
                         быть центром своей планетной системы. Человечество лишь начало изучать просторы Вселенной, но
                         уже</p>
                 </div>
-                <div class="navigation__box">
+                <div class="navigation__box" data-aos="fade-up">
                     <img class="navigation__box__img" src="../resources/img/technologies.png">
                     <div class="decoration-line"></div>
                     <p class="navigation__box__text">Космос бескрайний и загадочный, в его глубинах скрываются миллиарды
@@ -71,7 +55,7 @@
                         быть центром своей планетной системы. Человечество лишь начало изучать просторы Вселенной, но
                         уже</p>
                 </div>
-                <div class="navigation__box">
+                <div class="navigation__box" data-aos="fade-up">
                     <img class="navigation__box__img" src="../resources/img/pet-projects.png">
                     <div class="decoration-line"></div>
                     <p class="navigation__box__text">Космос бескрайний и загадочный, в его глубинах скрываются миллиарды
@@ -80,7 +64,7 @@
                         быть центром своей планетной системы. Человечество лишь начало изучать просторы Вселенной, но
                         уже</p>
                 </div>
-                <div class="navigation__box">
+                <div class="navigation__box" data-aos="fade-up">
                     <img class="navigation__box__img" src="../resources/img/contacts.png">
                     <div class="decoration-line"></div>
                     <p class="navigation__box__text">Космос бескрайний и загадочный, в его глубинах скрываются миллиарды
@@ -93,5 +77,27 @@
         </div>
     </div>
 </div>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
+<script src="../resources/js/terminal.js"></script>
+<script>
+    AOS.init();
+
+    const writer = new Typewriter('#typewriter', {
+        loop: false,
+        delay: 50,
+        cursor: '',
+    });
+
+    writer
+        .typeString('<p>guest@guest ~# welcome</p>')
+        .pauseFor(200)
+        .typeString("<p>Welcome to my digital realm! Like a multilingual translator between humans and machines, I speak Java, Python and C++ fluently. Let's build something extraordinary.</p>")
+        .pauseFor(200)
+        .callFunction(() => {
+            const term = new Terminal(".terminal__text");
+        })
+        .start();
+</script>
 </body>
 </html>

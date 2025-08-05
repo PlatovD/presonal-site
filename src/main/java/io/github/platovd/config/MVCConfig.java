@@ -16,7 +16,7 @@ public class MVCConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resourceViewResolver = new InternalResourceViewResolver();
-        resourceViewResolver.setPrefix("/templates/");
+        resourceViewResolver.setPrefix("WEB-INF/templates/");
         resourceViewResolver.setSuffix(".jsp");
         return resourceViewResolver;
     }
