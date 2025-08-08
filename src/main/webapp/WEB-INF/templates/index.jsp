@@ -116,35 +116,14 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="grid-margin">
+        <div id="grid-technologies">
+            <h2 class="technologies__h">Skills</h2>
             <div class="technologies">
-                <div class="technologies__container" data-aos="fade-right">
-                    <img src="/resources/img/spring.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-up">
-                    <img src="/resources/img/hibernate.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-left">
-                    <img src="/resources/img/django.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-right">
-                    <img src="/resources/img/git.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-up">
-                    <img src="/resources/img/docker.svg" alt="">
-                </div>
-                <div class="technologies__container">
-                    <img src="/resources/img/nginx.svg" alt="" data-aos="fade-left">
-                </div>
-                <div class="technologies__container" data-aos="fade-right">
-                    <img src="/resources/img/apache2.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-up">
-                    <img src="/resources/img/mysql.svg" alt="">
-                </div>
-                <div class="technologies__container" data-aos="fade-left">
-                    <img src="/resources/img/linux.svg" alt="">
-                </div>
+                <c:forEach var="tech" items="${technologies}">
+                    <div class="technologies__container" data-aos="fade-up">
+                        <img src="${tech.imagePath}" alt="">
+                    </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -154,6 +133,15 @@
                 <img src="" alt="">
                 <p class="pet-project__container__text"></p>
                 <div class="pet-project__container__link"></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="grid-margin">
+            <div class="pets">
+                <c:forEach var="pet" items="${pets}">
+                    <img src="${pet.imagePath}" alt="">
+                </c:forEach>
             </div>
         </div>
     </div>
