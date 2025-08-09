@@ -48,3 +48,5 @@ export const ANSWERS_DICT = {
     'whoami': 'platovd (Platov Dima) - Fullstack Developer',
     'sudo': 'Error: Permission denied!'
 };
+
+export const APPEAL_SEND_URL = '/api/saveAppeal'

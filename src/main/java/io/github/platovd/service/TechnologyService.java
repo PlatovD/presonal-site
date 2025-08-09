@@ -1,6 +1,6 @@
 package io.github.platovd.service;
 
-import io.github.platovd.DAO.TechnologiesDAO;
+import io.github.platovd.dao.TechnologiesDAO;
 import io.github.platovd.model.Technology;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

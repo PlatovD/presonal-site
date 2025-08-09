@@ -3,7 +3,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/resources/css/base.css">
+    <link rel="stylesheet" href="/resources/css/base-mobile.css">
     <title>My page</title>
 </head>
 <body>
@@ -137,12 +139,38 @@
         </div>
     </div>
     <div class="wrapper">
-        <div class="grid-margin">
-            <div class="pets">
-                <c:forEach var="pet" items="${pets}">
-                    <img src="${pet.imagePath}" alt="">
-                </c:forEach>
-            </div>
+        <div class="pets">
+            <h2>Portfolio</h2>
+            <c:forEach var="pet" items="${pets}">
+                <div class="grid-margin">
+                    <div class="pet__container">
+                        <div class="pet__container__description">
+                            <h4>${pet.name}</h4>
+                                <%--                            <a class="link" href="${pet.link}">View</a>--%>
+                            <p>${pet.description}</p>
+                        </div>
+                        <img data-aos="flip-up" src="${pet.imagePath}" alt="">
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="form-container">
+            <h2>Text me!</h2>
+            <form id="appealForm">
+                <p>Your name</p>
+                <input type="text" name="name">
+
+                <p>Your contact information</p>
+                <input type="text" name="contact">
+
+                <p>Your message</p>
+                <textarea name="message"></textarea>
+
+                <button id="appeal-button" type="button">Send</button>
+
+            </form>
         </div>
     </div>
 </div>

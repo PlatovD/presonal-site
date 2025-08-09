@@ -1,6 +1,6 @@
 package io.github.platovd.service;
 
-import io.github.platovd.DAO.PetProjectDAO;
+import io.github.platovd.dao.PetProjectDAO;
 import io.github.platovd.model.PetProject;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package io.github.platovd.DAO;
+package io.github.platovd.dao;
 
 import io.github.platovd.model.Course;
 import org.hibernate.SessionFactory;

@@ -1,16 +1,12 @@
 package io.github.platovd.controller;
 
-import io.github.platovd.model.Appeal;
 import io.github.platovd.service.AppealService;
 import io.github.platovd.service.CourseService;
 import io.github.platovd.service.PetProjectService;
 import io.github.platovd.service.TechnologyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 @RequestMapping("/")
 @org.springframework.stereotype.Controller
@@ -54,11 +50,5 @@ public class Controller {
     @RequestMapping("/contacts")
     public String contacts() {
         return "contacts";
-    }
-
-    @RequestMapping(value = "/saveAppeal", method = RequestMethod.POST)
-    public RedirectView saveAppeal(@RequestParam("name") String name, @RequestParam("contact") String contact, @RequestParam("message") String message) {
-        appealService.saveAppeal(new Appeal(name, contact, message));
-        return new RedirectView("/contacts");
     }
 }
