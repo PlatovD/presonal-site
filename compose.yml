@@ -1,4 +1,23 @@
 services:
+  nginx:
+    image: "nginx:1.25-alpine"
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/log:/app/www/estate/logs
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    networks:
+      - app-network
+    ports:
+      - "443:443"
+      - "8080:8080"
+    command: >
+      sh -c "rm -f /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    depends_on:
+      - tomcat
+
   tomcat:
     build: .
     image: resume
@@ -8,8 +27,8 @@ services:
       - .env
     expose:
       - 8080
-    ports:
-      - "8080:8080"
+    #    ports:
+    #      - "8080:8080"
     networks:
       - app-network
     depends_on:
@@ -31,8 +50,18 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     networks:
       - app-network
-    ports:
-      - "3306:3306"
+    expose:
+      - 3306
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot/ --email platovdima6@gmail.com --agree-tos --no-eff-email -d platovd.ru
+    depends_on:
+      - nginx
+
 
 networks:
   app-network:

@@ -1,4 +1,7 @@
+certbot/conf/*
+certbot/www/*
 target/
+!.target/resume.war
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
