@@ -1,7 +1,13 @@
 package io.github.platovd.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+
+@Setter
+@Getter
 @Entity
 @Table(name = "pet_project")
 public class PetProject {
@@ -19,56 +25,27 @@ public class PetProject {
     @Column(name = "image_path")
     private String imagePath;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "role")
+    private String role;
+
+    @Column(name = "status")
+    private String status;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "technology_pet_project",
+            joinColumns = @JoinColumn(name = "pet_project_id"),
+            inverseJoinColumns = @JoinColumn(name = "technology_id")
+    )
+    private List<Technology> technologies;
+
 
     public PetProject(String name, String link, String imagePath, String description) {
         this.name = name;
         this.link = link;
         this.imagePath = imagePath;
-        this.description = description;
     }
 
     public PetProject() {
-    }
-
-    public int getPetProjectId() {
-        return petProjectId;
-    }
-
-    public void setPetProjectId(int petProjectId) {
-        this.petProjectId = petProjectId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

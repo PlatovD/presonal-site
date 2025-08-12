@@ -139,15 +139,24 @@
         </div>
     </div>
     <div class="wrapper">
+        <div class="h2-div">
+            <h2 class="h2-section">Portfolio</h2>
+        </div>
         <div class="pets">
-            <h2>Portfolio</h2>
             <c:forEach var="pet" items="${pets}">
                 <div class="grid-margin">
                     <div class="pet__container">
                         <div class="pet__container__description">
                             <h4>${pet.name}</h4>
-                                <%--                            <a class="link" href="${pet.link}">View</a>--%>
-                            <p>${pet.description}</p>
+                            <p><a class="link" target="_blank" href="${pet.link}">Link to project</a></p>
+                            <p><span class="custom-text1">Role:</span> ${pet.role}</p>
+                            <p><span class="custom-text1">Status:</span> ${pet.status}</p>
+                                <%--                            <p><span class="custom-text1">Stack:</span></p>--%>
+                            <div class="pet__container__description__stack-grid">
+                                <c:forEach var="tech" items="${pet.technologies}">
+                                    <div><img src="${tech.imagePath}" alt=""></div>
+                                </c:forEach>
+                            </div>
                         </div>
                         <img data-aos="flip-up" src="${pet.imagePath}" alt="">
                     </div>

@@ -1,7 +1,13 @@
 package io.github.platovd.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.List;
+
+@Setter
+@Getter
 @Entity
 @Table(name = "technology")
 public class Technology {
@@ -16,35 +22,19 @@ public class Technology {
     @Column(name = "information")
     private String information;
 
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "technology_pet_project",
+            joinColumns = @JoinColumn(name = "technology_id"),
+            inverseJoinColumns = @JoinColumn(name = "pet_project_id")
+    )
+    private List<PetProject> petProjects;
+
     public Technology() {
     }
 
     public Technology(String imagePath, String information) {
         this.imagePath = imagePath;
-        this.information = information;
-    }
-
-    public int getTechnologyId() {
-        return technologyId;
-    }
-
-    public void setTechnologyId(int technologyId) {
-        this.technologyId = technologyId;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public String getInformation() {
-        return information;
-    }
-
-    public void setInformation(String information) {
         this.information = information;
     }
 }
