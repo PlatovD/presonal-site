@@ -10,6 +10,7 @@ services:
       - ./certbot/www:/var/www/certbot
     networks:
       - app-network
+      - public_net
     ports:
       - "443:443"
       - "8080:8080"
@@ -66,6 +67,8 @@ services:
 networks:
   app-network:
     driver: bridge
+  public_net:
+    external: true
 
 volumes:
   mysql_data:
