@@ -24,6 +24,32 @@ function initLibraries() {
         .start();
 }
 
+function setScrollers() {
+    const buttons = [
+        document.querySelector('#bio-scroll-btn'),
+        document.querySelector('#tech-scroll-btn'),
+        document.querySelector('#pet-scroll-btn'),
+        document.querySelector('#contacts-scroll-btn')
+    ]
+
+    const sections = [
+        document.querySelector('#bio'),
+        document.querySelector('#tech'),
+        document.querySelector('#pet'),
+        document.querySelector('#contacts')
+    ]
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons.at(i).addEventListener('click', (e) => {
+            e.preventDefault();
+            sections.at(i).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
+        });
+    }
+}
+
 function initHandlers() {
     const form = document.forms.namedItem("appealForm");
     const button = document.querySelector('#appeal-button');
@@ -54,4 +80,5 @@ async function sendAppealToServer(name, contact, message) {
 }
 
 initLibraries();
+setScrollers();
 initHandlers();

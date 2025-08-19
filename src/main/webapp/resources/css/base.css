@@ -56,6 +56,13 @@
     color: var(--accent-color);
 }
 
+.h {
+    font-size: 6em;
+    display: inline-block;
+    border-bottom: 0.1em var(--second-color) solid;
+    margin-top: 0.5em;
+}
+
 .link {
     position: relative;
 }
@@ -159,7 +166,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 3em;
-    padding-bottom: 2em;
     overflow: hidden;
 }
 
@@ -181,10 +187,7 @@
 }
 
 .technologies__h {
-    display: flex;
-    font-size: 6em;
     transform: rotate(-90deg);
-    border-bottom: 0.1em var(--second-color) solid;
 }
 
 .h2-section {
@@ -204,6 +207,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     /*display: flex;*/
+    margin-top: 1em;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -221,7 +225,7 @@
         width: 98%;
         object-fit: fill;
         transition: 1s;
-        border: 0.3em var(--second-color) solid;
+        border: 0.1em var(--second-color) solid;
         border-radius: 10px;
     }
 }
@@ -244,7 +248,7 @@
     }
 
     p {
-        margin-top: 1em;
+        margin-top: 0.5em;
     }
 }
 
@@ -258,7 +262,7 @@
     margin-top: 1em;
     margin-right: 1em;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 0.2em;
     grid-row-gap: 0.2em;
 
@@ -274,6 +278,7 @@
     align-items: center;
 
     form {
+        margin-top: 1em;
         font-size: 1.4em;
         display: flex;
         flex-direction: column;
@@ -304,13 +309,6 @@
             font-size: 1em;
             padding: 0.2em;
         }
-    }
-
-    h2 {
-        display: flex;
-        font-size: 6em;
-        border-bottom: 0.1em var(--second-color) solid;
-        margin-bottom: 1em;
     }
 }
 

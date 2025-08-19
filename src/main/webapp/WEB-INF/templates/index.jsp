@@ -13,16 +13,16 @@
     <div class="logo">Platov Dmitrii</div>
     <div>
         <ul class="header__items-container">
-            <li><a class="link" href="/biography">
+            <li><a class="link" id="bio-scroll-btn" href="">
                 Biography
             </a></li>
-            <li><a class="link" href="/technologies">
+            <li><a class="link" id="tech-scroll-btn" href="">
                 Technologies
             </a></li>
-            <li><a class="link" href="/pet-projects">
+            <li><a class="link" id="pet-scroll-btn" href="">
                 Pet projects
             </a></li>
-            <li><a class="link" href="/contacts">
+            <li><a class="link" id="contacts-scroll-btn" href="">
                 Contacts
             </a></li>
         </ul>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper" id="bio">
         <svg width="100%" height="50%" id="svg" viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg"
              class="transition duration-700 ease-in-out delay-150 waves-img">
             <style>
@@ -117,9 +117,9 @@
             </div>
         </div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" id="tech">
         <div id="grid-technologies">
-            <h2 class="technologies__h">Skills</h2>
+            <h2 class="technologies__h h">Skills</h2>
             <div class="technologies">
                 <c:forEach var="tech" items="${technologies}">
                     <div class="technologies__container" data-aos="fade-up">
@@ -129,18 +129,9 @@
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <div class="pet-projects">
-            <div class="pet-project__container">
-                <img src="" alt="">
-                <p class="pet-project__container__text"></p>
-                <div class="pet-project__container__link"></div>
-            </div>
-        </div>
-    </div>
-    <div class="wrapper">
+    <div class="wrapper" id="pet">
         <div class="h2-div">
-            <h2 class="h2-section">Portfolio</h2>
+            <h2 class="h">Portfolio</h2>
         </div>
         <div class="pets">
             <c:forEach var="pet" items="${pets}">
@@ -164,9 +155,9 @@
             </c:forEach>
         </div>
     </div>
-    <div class="wrapper">
+    <div class="wrapper" id="contacts">
         <div class="form-container">
-            <h2>Text me!</h2>
+            <h2 class="h">Text me!</h2>
             <form id="appealForm">
                 <p>Your name</p>
                 <input type="text" name="name">
