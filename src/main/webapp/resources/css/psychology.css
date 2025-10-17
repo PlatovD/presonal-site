@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Buttons Section */
+.buttons-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.test-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 45px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.test-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+}
+
+/* Results Section */
+.results-section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+.results-section h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Table Container */
+.table-container {
+    overflow-x: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* Results Table */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.results-table th {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 20px 25px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.results-table th:first-child {
+    border-top-left-radius: 15px;
+}
+
+.results-table th:last-child {
+    border-top-right-radius: 15px;
+}
+
+.results-table td {
+    padding: 18px 25px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;
+}
+
+.results-table tr:hover td {
+    background: #f7fafc;
+    transform: scale(1.02);
+}
+
+/* Specific cell styles */
+.time-cell {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+
+.date-cell {
+    color: #4a5568;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    color: #a0aec0;
+    padding: 40px;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .header h1 {
+        font-size: 2.2rem;
+    }
+
+    .header p {
+        font-size: 1.1rem;
+    }
+
+    .test-btn {
+        padding: 16px 35px;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .results-section {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+
+    .results-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+
+    .results-table th {
+        font-size: 0.95rem;
+        padding: 16px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .results-table th,
+    .results-table td {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+
+    .time-cell {
+        font-size: 1rem;
+    }
+
+    .table-container {
+        border-radius: 10px;
+    }
+}

@@ -1,28 +1,21 @@
 package io.github.platovd.controller;
 
-import io.github.platovd.service.AppealService;
-import io.github.platovd.service.CourseService;
-import io.github.platovd.service.PetProjectService;
-import io.github.platovd.service.TechnologyService;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.github.platovd.service.*;
+import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@RequestMapping("/")
 @org.springframework.stereotype.Controller
+@RequiredArgsConstructor
+@RequestMapping("/")
 public class Controller {
     private final AppealService appealService;
     private final TechnologyService technologyService;
     private final CourseService courseService;
     private final PetProjectService petProjectService;
+    private final PsychologyTestService psychologyTestService;
 
-    @Autowired
-    public Controller(AppealService appealService, TechnologyService technologyService, CourseService courseService, PetProjectService petProjectService) {
-        this.appealService = appealService;
-        this.technologyService = technologyService;
-        this.courseService = courseService;
-        this.petProjectService = petProjectService;
-    }
 
     @RequestMapping("")
     public ModelAndView indexView() {
@@ -50,5 +43,16 @@ public class Controller {
     @RequestMapping("/contacts")
     public String contacts() {
         return "contacts";
+    }
+
+    @RequestMapping("/psychology")
+    public String psychology(Model model) {
+        model.addAttribute("resultList", psychologyTestService.getAllTestResultsSorted());
+        return "psychology";
+    }
+
+    @RequestMapping("/schulte")
+    public String schulte() {
+        return "schulte";
     }
 }

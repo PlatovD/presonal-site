@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #2d3748;
+    line-height: 1.6;
+}
+
+.schulte-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Header */
+.schulte-header {
+    margin-bottom: 30px;
+    color: white;
+}
+
+.schulte-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.schulte-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Game Info */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#timer, #currentNumber {
+    color: #ffeb3b;
+    font-size: 1.2rem;
+}
+
+/* Matrix Container */
+.matrix-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Cell Styles */
+.matrix-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    box-shadow: 0 4px 15px rgba(116, 185, 255, 0.3);
+}
+
+.matrix-cell:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(116, 185, 255, 0.5);
+    background: linear-gradient(135deg, #81ecec 0%, #00cec9 100%);
+}
+
+.matrix-cell.active {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    color: #2d3436;
+    transform: scale(0.95);
+}
+
+.matrix-cell.completed {
+    background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+    color: white;
+    transform: scale(0.9);
+    cursor: default;
+}
+
+.matrix-cell.completed::after {
+    content: "✓";
+    margin-left: 5px;
+    font-size: 1.2rem;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 140px;
+}
+
+.control-btn.start {
+    background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+}
+
+.control-btn.start:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.6);
+}
+
+.control-btn.reset {
+    background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(253, 121, 168, 0.4);
+}
+
+.control-btn.reset:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(253, 121, 168, 0.6);
+}
+
+.control-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .schulte-container {
+        padding: 20px 15px;
+        max-width: 500px;
+    }
+
+    .schulte-header h1 {
+        font-size: 2rem;
+    }
+
+    .schulte-header p {
+        font-size: 1rem;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+
+    .matrix-container {
+        gap: 6px;
+        padding: 15px;
+    }
+
+    .matrix-cell {
+        font-size: 1.5rem;
+        border-radius: 10px;
+    }
+
+    .control-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .schulte-container {
+        padding: 15px 10px;
+    }
+
+    .schulte-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .matrix-container {
+        gap: 4px;
+        padding: 10px;
+    }
+
+    .matrix-cell {
+        font-size: 1.3rem;
+        border-radius: 8px;
+    }
+
+    .game-info {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    #timer, #currentNumber {
+        font-size: 1.1rem;
+    }
+
+    .control-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        min-width: 110px;
+    }
+}
+
+@media (max-width: 360px) {
+    .matrix-cell {
+        font-size: 1.1rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .control-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
